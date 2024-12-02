@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros da Bíblia - Conheça os Livros Sagrados</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Resetando o estilo padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo e Estilo Geral */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0; /* Fundo mais suave */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            color: #1C1C1C; /* Cor de texto mais suave */
+            font-family: 'Georgia', serif;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 20px; /* Título abaixo do cabeçalho */
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: #2C3E50; /* Cor mais sóbria para o cabeçalho */
+            color: white;
+            padding: 20px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        /* Barra de Pesquisa e Links de Navegação */
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px; /* Reduzido o tamanho das opções */
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #34495E; /* Azul mais claro para hover */
+        }
+
+        /* Barra de Pesquisa */
+        .search-bar {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 250px;
+        }
+
+        .search-bar button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #3498DB;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-bar button:hover {
+            background-color: #2980B9;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            padding: 40px 30px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Seções */
+        section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 25px;
+        }
+
+        section p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Tabelas para Livros */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #2C3E50;
+            color: white;
+        }
+
+        table td {
+            background-color: #f4f4f4;
+        }
+
+        /* Layout Grid para Informações sobre Jesus */
+        #jesus {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        #jesus h3 {
+            font-size: 22px;
+            color: #2C3E50;
+            margin-bottom: 10px;
+        }
+
+        #jesus p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        #jesus div {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulário de Contato */
+        .contact-section {
+            background-color: #f4f4f4;
+            padding: 40px;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+
+        .contact-section h2 {
+            font-size: 28px;
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #2C3E50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background-color: #1A252F;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            header h2 {
+                font-size: 18px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            #jesus {
+                grid-template-columns: 1fr;
+            }
+
+            table, th, td {
+                font-size: 14px;
+            }
+
+            .search-bar input {
+                width: 200px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Efeito Cabeçalho ao Rolar */
+        .hidden {
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .visible {
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        /* Estilo para imagens */
+        .image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 60%; /* Ajustando o tamanho da imagem */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar livros...">
+            <button>Pesquisar</button>
+        </div>
+        <nav>
+            <a href="#curiosidades">Curiosidades</a>
+            <a href="#livros-antigo">Antigo Testamento</a>
+            <a href="#livros-novo">Novo Testamento</a>
+        </nav>
+    </header>
+
+    <!-- Título da Página -->
+    <h1>Livros da Bíblia</h1>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção Curiosidades -->
+        <section id="curiosidades">
+            <h2>Curiosidades sobre a Bíblia</h2>
+            <p>A Bíblia é composta por 66 livros, sendo 39 no Antigo Testamento e 27 no Novo Testamento. É um dos livros mais traduzidos e distribuídos em todo o mundo.</p>
+            <div class="image-container">
+                <img src="Biblia.jpg" alt="Imagem sobre a Bíblia" style="height: 500px;">
+            </div>
+        </section>
+
+        <!-- Livros do Antigo Testamento -->
+        <section id="livros-antigo">
+            <h2>Livros do Antigo Testamento</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Livro</th>
+                        <th>Autor</th>
+                        <th>Capítulos</th>
+                        <th>Versículos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gênesis</td>
+                        <td>Moisés</td>
+                        <td>50</td>
+                        <td>1.533</td>
+                    </tr>
+                    <tr>
+                        <td>Êxodo</td>
+                        <td>Moisés</td>
+                        <td>40</td>
+                        <td>1.213</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Livros do Novo Testamento -->
+        <section id="livros-novo">
+            <h2>Livros do Novo Testamento</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do Livro</th>
+                        <th>Autor</th>
+                        <th>Capítulos</th>
+                        <th>Versículos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mateus</td>
+                        <td>Mateus</td>
+                        <td>28</td>
+                        <td>1.071</td>
+                    </tr>
+                    <tr>
+                        <td>Marcos</td>
+                        <td>Marcos</td>
+                        <td>16</td>
+                        <td>678</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Seção Informações sobre Jesus -->
+        <section id="jesus">
+            <div>
+                <h3>1. Nascimento e Primeiros Anos</h3>
+                <p><strong>Nascimento:</strong> Jesus nasceu em Belém, filho da virgem Maria, conforme profetizado (Mateus 1:18-25).</p>
+                <p><strong>Infância:</strong> Cresceu em Nazaré e, aos 12 anos, ensinou no templo, surpreendendo os doutores da lei com sua sabedoria (Lucas 2:41-52).</p>
+            </div>
+            <div>
+                <h3>2. Ministério</h3>
+                <p><strong>Batismo:</strong> Iniciou seu ministério aos 30 anos, sendo batizado por João Batista no rio Jordão (Mateus 3:13-17).</p>
+                <p><strong>Milagres:</strong> Curou enfermos, ressuscitou mortos, acalmou tempestades e transformou água em vinho (João 2:1-11; Mateus 8:23-27).</p>
+            </div>
+            <div>
+                <h3>3. Propósito e Missão</h3>
+                <p><strong>Salvação:</strong> Veio para salvar a humanidade do pecado, oferecendo-se como sacrifício perfeito (João 3:16; 1 Pedro 2:24).</p>
+                <p><strong>Expiação:</strong> Sua morte na cruz e ressurreição ao terceiro dia proporcionam a redenção e a vida eterna (Mateus 28:1-10; Romanos 6:9).</p>
+            </div>
+            <div>
+                <h3>4. Atributos e Características</h3>
+                <p><strong>Amor:</strong> Demonstrou amor incondicional, perdoando até mesmo seus algozes (Lucas 23:34).</p>
+                <p><strong>Humildade:</strong> Viveu uma vida simples e serviu aos outros (Filipenses 2:5-8).</p>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section class="contact-section">
+            <h2>Contato</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Seu nome" required>
+                <input type="email" placeholder="Seu e-mail" required>
+                <textarea rows="5" placeholder="Sua mensagem ou comentário" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Livros da Bíblia. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Script para esconder o cabeçalho ao rolar para baixo e exibir ao rolar para cima
+        let lastScrollTop = 0;
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+            if (currentScroll > lastScrollTop) {
+                header.classList.add("hidden");
+                header.classList.remove("visible");
+            } else {
+                header.classList.add("visible");
+                header.classList.remove("hidden");
+            }
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+    </script>
+</body>
+</html>
